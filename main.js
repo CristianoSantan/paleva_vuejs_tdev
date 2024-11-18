@@ -26,8 +26,13 @@ const app = Vue.createApp({
     this.listResult = await this.getData();
   },
   methods:{
-    async receive(){
-
+    async change(code, status){
+      let response = await fetch(`http://localhost:3000/api/v1/orders/QUEEN01/${code}/?status=${status}`, {
+        method: "PATCH"
+      });
+      let data = await response.json();
+      this.order = data
+      await this.getData();
     },
     async details(item){
       this.order = item
