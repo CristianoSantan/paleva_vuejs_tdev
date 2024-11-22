@@ -44,7 +44,7 @@ const Home = {
       }
     },
     template: `
-      <div class="container">
+      <div class="container text-center">
         <select v-model="selectedOption" class="m-5">
             <option value="">Todos</option>
             <option v-for="option in options" :key="option.value" :value="option.value">
@@ -53,7 +53,7 @@ const Home = {
         </select>
         
         <div class="msg mx-5" v-if="listResult.length <= 0">Nenhum pedido encontrado!</div>
-        <ul>
+        <ul class="">
             <li v-for="item in listResult">
                 <div class="card">
                     <address>
@@ -141,7 +141,7 @@ const routes = [
 
 // Criação do router
 const router = VueRouter.createRouter({
-    history: VueRouter.createWebHistory(),
+    history: VueRouter.createWebHashHistory(),
     routes
 })
 
